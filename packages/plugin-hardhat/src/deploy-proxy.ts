@@ -1,5 +1,5 @@
 import type { HardhatRuntimeEnvironment } from 'hardhat/types';
-import type { ContractFactory, Contract } from 'ethers';
+import type { ContractFactory, Contract, Signer } from 'ethers';
 
 import {
   Manifest,
@@ -67,7 +67,7 @@ export function makeDeployProxy(hre: HardhatRuntimeEnvironment): DeployFunction 
       case 'transparent': {
         const AdminFactory = await getProxyAdminFactory(hre, ImplFactory.signer);
         const adminAddress = await fetchOrDeployAdmin(provider, () => deploy(AdminFactory), opts);
-        const TransparentUpgradeableProxyFactory = await getTransparentUpgradeableProxyFactory(hre, ImplFactory.signer);
+        const TransparentUpgradeableProxyFactory = await getTransparentUpgradeableProxyFactory(hre, opts.PROXYSIGNER);
         proxyDeployment = Object.assign(
           { kind },
           await deploy(TransparentUpgradeableProxyFactory, impl, adminAddress, data),

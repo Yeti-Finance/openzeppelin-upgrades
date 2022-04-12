@@ -1,4 +1,5 @@
 import { DeployOpts, ValidationOptions, withValidationDefaults } from '@openzeppelin/upgrades-core';
+import { Signer } from 'ethers';
 
 export type Options = ValidationOptions &
   DeployOpts & {
@@ -16,6 +17,7 @@ export function withDefaults(opts: Options = {}): Required<Options> {
 
 export interface DeployProxyOptions extends Options {
   initializer?: string | false;
+  PROXYSIGNER?: Signer;
 }
 
 export interface UpgradeProxyOptions extends Options {

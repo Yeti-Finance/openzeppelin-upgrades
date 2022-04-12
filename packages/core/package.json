@@ -2,7 +2,7 @@
   "name": "@openzeppelin/upgrades-core",
   "version": "1.14.1",
   "description": "",
-  "repository": "https://github.com/OpenZeppelin/openzeppelin-upgrades/tree/master/packages/core",
+  "repository": "https://github.com/Yeti-Finance/openzeppelin-upgrades/tree/master/packages/core",
   "license": "MIT",
   "main": "dist/index.js",
   "files": [
